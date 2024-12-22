@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taida CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="./profile.webp" type="image/webp">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            word-wrap: break-word;
+            transition: all 0.5s ease;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #2a4373, #112240);
+            color: #e0e0e0;
+            display: flex;
+            min-height: 100vh;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .sidebar {
+            /* background: linear-gradient(145deg, #112240, #1a2a47); */ /* Removed sidebar background */
+            width: 300px;
+            padding: 0.5rem 1rem;
+            
+            display: flex;
+            flex-direction: column;
+            box-shadow: inset 3px 0 10px rgba(0, 0, 0, 0.2);
+            transition: none;
+            transform: translateX(-100%);
+            animation: slideInSidebar 0.5s ease 0.2s forwards;
+            position: relative;
+            border-radius: 15px;
+        }
+
+        @keyframes slideInSidebar {
+            to {
+                transform: translateX(0);
+            }
+        }
+
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            
+            border-radius: 50%;
+            margin: 2rem auto 2rem;
+            border: 3px solid #00aaff;
+            box-shadow: inset 0 0 8px rgba(0, 170, 255, 0.5);
+            animation: pulse 2s ease infinite;
+            position: relative;
+        }
+
+  
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: linear-gradient(145deg, #112240, #1a2a47);
+            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info h3,
+        .skills h3,
+        .languages h3,
+        .soft-skills h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #00aaff;
+            /* text-shadow: 0 0 5px rgba(0, 170, 255, 0.5); */
+            opacity: 0;
+            animation: fadeInUp 0.5s ease 0.4s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        .contact-info ul {
+            list-style: none;
+            line-height: 2;
+        }
+
+        .contact-info ul li {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeIn 0.5s ease 0.6s forwards;
+        }
+
+        .contact-info ul li i {
+            color: #00aaff;
+            min-width: 20px;
+        }
+
+        .skills ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-chip {
+            background: rgba(0, 170, 255, 0.15);
+            color: #00aaff;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: all 0.5s ease;
+            animation: fadeIn 0.5s ease 0.8s forwards;
+        }
+
+        .skill-chip:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .languages ul {
+            list-style: none;
+            width: 100%;
+        }
+
+        .languages ul li {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .language-bar {
+            background: #112240;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+            position: relative;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeIn 0.5s ease 1s forwards;
+            height: 10px;
+            width: 100%;
+        }
+
+        .language-bar span {
+            display: block;
+            height: 100%;
+            background: #00aaff;
+            box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+            border-radius: 8px;
+            transition: width 0.3s ease;
+        }
+
+        .language-bar span::after {
+            content: attr(data-label);
+            position: absolute;
+            right: 5px;
+            top: -18px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            margin-top: 25px;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(145deg, #112240, #1a2a47);
+            border-radius: 15px;
+            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease 0.2s forwards;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00aaff, #36c6da);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* text-shadow: 0 0 8px rgba(0, 170, 255, 0.5); */
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: #00aaff;
+            transition: all 0.5s ease;
+        }
+
+        .section:hover .section-title::after {
+            width: 100%;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+                margin-top: 5px;
+            }
+
+            .language-bar span {
+                height: 8px;
+            }
+        }
+
+        .soft-skills {
+            margin-top: 1rem;
+        }
+
+        .soft-skills h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #00aaff;
+            /* text-shadow: 0 0 5px rgba(0, 170, 255, 0.5); */
+            opacity: 0;
+            animation: fadeInUp 0.5s ease 0.4s forwards;
+        }
+
+        .soft-skills ul {
+            list-style: none;
+            line-height: 2;
+            padding-left: 0;
+        }
+
+        .soft-skills ul li {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            padding-left: 15px;
+            opacity: 0;
+            animation: fadeIn 0.5s ease 0.6s forwards;
+        }
+
+        .soft-skills ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: #00aaff;
+            border-radius: 50%;
+            box-shadow: inset 0 0 4px rgba(0, 170, 255, 0.5);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skills-container .section {
+            flex: 1;
+            min-width: 300px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease 0.4s forwards;
+        }
+
+        @media (max-width: 768px) {
+            .skills-container {
+                flex-direction: column;
+            }
+
+            .skills-container .section {
+                min-width: auto;
+            }
+        }
+
+        .theme-language-toggles {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+            direction: ltr;
+        }
+
+        .theme-language-toggles button {
+            background: rgba(0, 170, 255, 0.15);
+            color: #00aaff;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 50%;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            direction: ltr;
+        }
+
+        .theme-language-toggles button:hover {
+            background: rgba(0, 170, 255, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        body.light-theme {
+            background: linear-gradient(135deg, #f6f7ff 0%, #e9f0ff 100%);
+            color: #2d3748;
+        }
+
+        body.light-theme .sidebar-section,
+        body.light-theme .section {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                0 10px 15px -3px rgba(0, 0, 0, 0.05),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+            color: #e0e0e0;
+        }
+
+        body.light-theme .section:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 
+                0 8px 12px -1px rgba(0, 0, 0, 0.08),
+                0 14px 20px -3px rgba(0, 0, 0, 0.08),
+                inset 0 0 0 1.5px rgba(255, 255, 255, 0.9);
+        }
+
+        body.light-theme .section-title {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light-theme .contact-info h3,
+        body.light-theme .skills h3,
+        body.light-theme .languages h3,
+        body.light-theme .soft-skills h3 {
+            color: #1e40af;
+        }
+
+        body.light-theme .contact-info ul li,
+        body.light-theme .soft-skills ul li {
+            color: #4b5563;
+        }
+
+        body.light-theme .skill-chip {
+            background: rgba(30, 64, 175, 0.1);
+            color: #1e40af;
+            border: 1px solid rgba(30, 64, 175, 0.2);
+        }
+
+        body.light-theme .skill-chip:hover {
+            background: rgba(30, 64, 175, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(30, 64, 175, 0.15);
+        }
+
+        body.light-theme .language-bar {
+            background: rgba(30, 64, 175, 0.1);
+            border: 1px solid rgba(30, 64, 175, 0.2);
+        }
+
+        body.light-theme .language-bar span {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+        }
+
+        body.light-theme .theme-language-toggles button {
+            background: rgba(30, 64, 175, 0.1);
+            color: #1e40af;
+            border: 1px solid rgba(30, 64, 175, 0.2);
+        }
+
+        body.light-theme .theme-language-toggles button:hover {
+            background: rgba(30, 64, 175, 0.15);
+            transform: translateY(-2px);
+        }
+
+        body.light-theme .contact-info ul li i {
+            color: #1e40af;
+        }
+
+        body.light-theme .soft-skills ul li::before {
+            background: #1e40af;
+            box-shadow: 0 0 4px rgba(30, 64, 175, 0.5);
+        }
+
+        /* Add RTL support styles */
+        body[dir="rtl"] .sidebar {
+            transform: translateX(100%);
+        }
+
+        body[dir="rtl"] .contact-info ul li {
+            flex-direction: row-reverse;
+        }
+
+        body[dir="rtl"] .language-bar span::after {
+            right: auto;
+            left: 5px;
+        }
+
+        body[dir="rtl"] .section-title i {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+
+        /* Update the slideInSidebar animation for RTL */
+        @keyframes slideInSidebarRTL {
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        body[dir="rtl"] .sidebar {
+            animation: slideInSidebarRTL 0.5s ease 0.2s forwards;
+        }
+
+        /* Add hover effect for sections in light mode */
+        body.light-theme .section:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 
+                0 8px 12px -1px rgba(0, 0, 0, 0.08),
+                0 14px 20px -3px rgba(0, 0, 0, 0.08),
+                inset 0 0 0 1.5px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Update RTL support for soft skills */
+        body[dir="rtl"] .soft-skills ul li {
+            padding-left: 0;
+            padding-right: 15px;
+            flex-direction: row-reverse;
+            text-align: right;
+            justify-content: flex-start;
+            width: 100%;
+        }
+
+        body[dir="rtl"] .soft-skills ul li::before {
+            left: auto;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        /* Add base styles for soft skills list items */
+        .soft-skills ul li {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* Update the base soft skills dot position */
+        .soft-skills ul li::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Add text alignment for section headers in RTL */
+        body[dir="rtl"] .contact-info h3,
+        body[dir="rtl"] .soft-skills h3 {
+            text-align: right;
+        }
+
+        /* Add text alignment for containers in RTL */
+        body[dir="rtl"] .contact-info,
+        body[dir="rtl"] .soft-skills {
+            text-align: right;
+        }
+
+        /* Update section titles for RTL */
+        body[dir="rtl"] .section-title::after {
+            left: auto;
+            right: 0;
+        }
+
+        body[dir="rtl"] .section:hover .section-title::after {
+            width: 100%;
+        }
+
+        /* Reset and update soft skills styles */
+        .soft-skills ul li {
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .soft-skills ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background: #00aaff;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* RTL specific styles for soft skills */
+        body[dir="rtl"] .soft-skills ul li {
+            padding-left: 0;
+            padding-right: 20px;
+            text-align: right;
+        }
+
+        body[dir="rtl"] .soft-skills ul li::before {
+            left: auto;
+            right: 0;
+        }
+
+        /* Remove any flex properties that might interfere */
+        body[dir="rtl"] .soft-skills ul li {
+            display: block;
+            position: relative;
+        }
+
+        /* Ensure text alignment */
+        body[dir="rtl"] .soft-skills ul {
+            text-align: right;
+        }
+
+        /* Update contact info for RTL */
+        body[dir="rtl"] .contact-info ul li {
+            text-align: right;
+            justify-content: flex-end;
+        }
+
+        body[dir="rtl"] .contact-info ul li i {
+            margin-left: 10px;
+            margin-right: 0;
+        }
+
+        /* Base contact info styles */
+        .contact-info ul li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* RTL contact info styles */
+        body[dir="rtl"] .contact-info ul li {
+            flex-direction: row;
+            text-align: right;
+            gap: 10px;
+        }
+
+        body[dir="rtl"] .contact-info ul li i {
+            order: -1; /* Move icon to the start */
+        }
+
+        /* Remove any conflicting RTL styles */
+        body[dir="rtl"] .contact-info ul li {
+            justify-content: flex-start; /* Override any justify-content */
+        }
+
+        /* Ensure consistent spacing */
+        .contact-info ul li i {
+            min-width: 20px;
+            text-align: center;
+        }
+
+        /* Remove any previous RTL contact styles that might conflict */
+        body[dir="rtl"] .contact-info ul li {
+            flex-direction: row; /* Keep row direction */
+        }
+
+        /* Update contact info container */
+        body[dir="rtl"] .contact-info {
+            text-align: right;
+            direction: rtl;
+        }
+
+        /* Override RTL direction for toggle buttons */
+        body[dir="rtl"] .theme-language-toggles {
+            right: 20px;
+            left: auto;
+            flex-direction: row; /* Force row direction */
+            direction: ltr;
+        }
+
+        /* Update text colors in light mode to match dark mode */
+        body.light-theme .sidebar-section,
+        body.light-theme .section {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                0 10px 15px -3px rgba(0, 0, 0, 0.05),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+            color: #e0e0e0;  /* Match dark mode text color */
+        }
+
+        /* Update all text colors to match dark mode */
+        body.light-theme .contact-info ul li,
+        body.light-theme .soft-skills ul li,
+        body.light-theme p,
+        body.light-theme li {
+            color: #94a3b8;  /* Match dark mode text color */
+        }
+
+        body.light-theme .contact-info h3,
+        body.light-theme .skills h3,
+        body.light-theme .languages h3,
+        body.light-theme .soft-skills h3 {
+            color: #00aaff;  /* Match dark mode heading color */
+        }
+
+        body.light-theme .section-title {
+            background: linear-gradient(45deg, #00aaff, #36c6da);  /* Match dark mode gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Update language bar colors */
+        body.light-theme .language-bar span {
+            background: #00aaff;  /* Match dark mode accent color */
+            box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+        }
+
+        /* Update skill chips */
+        body.light-theme .skill-chip {
+            background: rgba(0, 170, 255, 0.15);
+            color: #00aaff;
+            border: 1px solid rgba(0, 170, 255, 0.2);
+        }
+
+        body.light-theme .skill-chip:hover {
+            background: rgba(0, 170, 255, 0.2);
+        }
+
+        /* Update icons color */
+        body.light-theme .contact-info ul li i {
+            color: #00aaff;
+        }
+
+        /* Update soft skills dots */
+        body.light-theme .soft-skills ul li::before {
+            background: #00aaff;
+            box-shadow: 0 0 4px rgba(0, 170, 255, 0.5);
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <div class="theme-language-toggles">
+        <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+        <button id="language-toggle"><i class="fas fa-globe"></i></button>
+    </div>
+    <div class="sidebar">
+        <img src="./profile.webp" alt="Profile Image" class="profile-img">
+        <div class="sidebar-section">
+            <div class="contact-info">
+                <h3 data-translate="contact">Contact</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:taida.dream@gmail.com" style="color: #00aaff; text-decoration: none;">taida.dream@gmail.com</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+967774126583" style="color: #00aaff; text-decoration: none;" dir="ltr">+967774126583</a>
+                    </li>
+                     <li>
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/0taida" target="_blank" style="color: #00aaff; text-decoration: none;">Github</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span data-translate="location">Sana'a, Yemen</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar-section">
+            <div class="soft-skills">
+                <h3 data-translate="soft-skills">Soft Skills</h3>
+                <ul >
+                    <li data-translate="analytical-skills"  >Analytical Skills</li>
+                    <li data-translate="teamwork">Teamwork</li>
+                    <li data-translate="problem-solving">Problem Solving</li>
+                    <li data-translate="communication">Communication</li>
+                    <li data-translate="adaptability">Adaptability</li>
+                    <li data-translate="time-management">Time Management</li>
+                    <li data-translate="leadership">Leadership</li>
+                    <li data-translate="creativity">Creativity</li>
+                    <li data-translate="attention-to-detail">Attention to Detail</li>
+                    <li data-translate="critical-thinking">Critical Thinking</li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar-section">
+            <div class="languages">
+                <h3 data-translate="languages">Languages</h3>
+                <ul>
+                    <li>
+                        <span data-translate="english">English</span>
+                        <div class="language-bar">
+                            <span style="width: 90%;" data-label="90%"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <span data-translate="arabic">Arabic</span>
+                        <div class="language-bar">
+                            <span style="width: 100%;" data-label="100%"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <section id="about" class="section">
+            <h2 class="section-title" data-translate="professional-summary"><i class="fas fa-user"></i> Professional Summary</h2>
+            <p data-translate="passionate-developer">Passionate software developer with nearly a year of experience at Doing, specializing in Laravel, Vue.js,
+                Bootstrap, and Tailwind. Familiar with React and Remix, with a keen interest in mobile development and a
+                completed Flutter-based chat app project.</p>
+        </section>
+
+        <section id="experience" class="section">
+            <h2 class="section-title" data-translate="professional-experience"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <div>
+                <h3 data-translate="software-developer">Software Developer</h3>
+                <span class="experience-date">2023 - Present</span>
+                <p data-translate="doing">Doing</p>
+                <ul>
+                    <li data-translate="collaborated-platform">Collaborated on a Laravel-based platform enabling online store creation.</li>
+                    <li data-translate="enhanced-ui">Enhanced UI using Bootstrap and Tailwind CSS.</li>
+                    <li data-translate="participated-development">Participated in feature development, debugging, and code reviews.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="skills-container">
+            <section id="frontend-skills" class="section">
+                <h2 class="section-title" data-translate="frontend-skills"><i class="fas fa-code"></i> Frontend Skills</h2>
+                <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <li class="skill-chip">HTML</li>
+                    <li class="skill-chip">CSS</li>
+                    <li class="skill-chip">JavaScript</li>
+                    <li class="skill-chip">TypeScript</li>
+                    <li class="skill-chip">React</li>
+                    <li class="skill-chip">Vue.js</li>
+                    <li class="skill-chip">Bootstrap</li>
+                    <li class="skill-chip">Tailwind CSS</li>
+                </ul>
+            </section>
+
+            <section id="backend-skills" class="section">
+                <h2 class="section-title" data-translate="backend-skills"><i class="fas fa-server"></i> Backend Skills</h2>
+                <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <li class="skill-chip">Node.js</li>
+                    <li class="skill-chip">PHP</li>
+                    <li class="skill-chip">Laravel</li>
+                    <li class="skill-chip">MySQL</li>
+                    <li class="skill-chip">PostgreSQL</li>
+                </ul>
+            </section>
+
+            <section id="tools-and-technologies" class="section">
+                <h2 class="section-title" data-translate="tools-technologies"><i class="fas fa-wrench"></i> Tools & Technologies</h2>
+                <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <li class="skill-chip">Git</li>
+                    <li class="skill-chip">Docker</li>
+                    <li class="skill-chip">Firebase</li>
+                    <li class="skill-chip">Caddy</li>
+                    <li class="skill-chip">VS Code</li>
+                    <li class="skill-chip">GitHub</li>
+                    <li class="skill-chip">Postman</li>
+                    <li class="skill-chip">npm</li>
+                    <li class="skill-chip">Ubuntu</li>
+                </ul>
+                </ul>
+            </section>
+        </div>
+
+        <section id="projects" class="section">
+            <h2 class="section-title" data-translate="projects"><i class="fas fa-code"></i> Projects</h2>
+            <div>
+                <h3 data-translate="simple-chat-app">Simple Chat App</h3>
+                <p data-translate="developed-chat-app">Developed a real-time chat app using Flutter and Firebase, focusing on user-friendly design and
+                    seamless functionality.</p>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <h2 class="section-title" data-translate="education"><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div>
+                <h3 data-translate="university-name">Bachelor's in Information Technology</h3>
+                <p data-translate="university-name">University of Yemen</p>
+                <span class="experience-date" data-translate="graduated">Graduated: 2023</span>
+                <p data-translate="focused-software">Focused on information technology and application development.</p>
+            </div>
+        </section>
+
+        <section id="interests" class="section">
+            <h2 class="section-title" data-translate="interests"><i class="fas fa-heart"></i> Interests</h2>
+            <p data-translate="enthusiastic-exploring">Enthusiastic about exploring new technologies, contributing to open-source projects, and engaging with
+                the developer community through hackathons and tech events.
+
+            </p>
+        </section>
+    </div>
+
+    <script>
+        // JavaScript to handle theme and language toggles
+        const themeToggle = document.getElementById('theme-toggle');
+        const languageToggle = document.getElementById('language-toggle');
+        const body = document.body;
+
+        // Translation object
+        const translations = {
+            en: {
+                'professional-summary': 'Professional Summary',
+                'passionate-developer': 'Passionate software developer with nearly a year of experience at Doing, specializing in Laravel, Vue.js, Bootstrap, and Tailwind. Familiar with React and Remix, with a keen interest in mobile development and a completed Flutter-based chat app project.',
+                'professional-experience': 'Professional Experience',
+                'software-developer': 'Software Developer',
+                'doing': 'Doing',
+                'collaborated-platform': 'Collaborated on a Laravel-based platform enabling online store creation.',
+                'enhanced-ui': 'Enhanced UI using Bootstrap and Tailwind CSS.',
+                'participated-development': 'Participated in feature development, debugging, and code reviews.',
+                'frontend-skills': 'Frontend Skills',
+                'backend-skills': 'Backend Skills',
+                'tools-technologies': 'Tools & Technologies',
+                'projects': 'Projects',
+                'simple-chat-app': 'Simple Chat App',
+                'developed-chat-app': 'Developed a real-time chat app using Flutter and Firebase, focusing on user-friendly design and seamless functionality.',
+                'education': 'Education',
+                'university-name': 'Bachelor\'s in Information Technology',
+                'graduated': 'Graduated: 2023',
+                'focused-software': 'Focused on information technology and application development.',
+                'interests': 'Interests',
+                'enthusiastic-exploring': 'Enthusiastic about exploring new technologies, contributing to open-source projects, and engaging with the developer community through hackathons and tech events.',
+                'contact': 'Contact',
+                'soft-skills': 'Soft Skills',
+                'languages': 'Languages',
+                'analytical-skills': 'Analytical Skills',
+                'teamwork': 'Teamwork',
+                'problem-solving': 'Problem Solving',
+                'communication': 'Communication',
+                'adaptability': 'Adaptability',
+                'time-management': 'Time Management',
+                'leadership': 'Leadership',
+                'creativity': 'Creativity',
+                'attention-to-detail': 'Attention to Detail',
+                'critical-thinking': 'Critical Thinking',
+                'english': 'English',
+                'arabic': 'Arabic',
+                'location': 'Sana\'a, Yemen'
+            },
+            ar: {
+                'professional-summary': 'الملف المهني',
+                'passionate-developer': 'مطور برمجيات شغوف مع خبرة تقارب العام في شركة Doing، متخصص في Laravel وVue.js وBootstrap وTailwind. لدي معرفة بـ React وRemix، مع شغف كبير بتطوير تطبيقات الهواتف المحمولة وقد أنجزت مشروع تطبيق دردشة باستخدام Flutter.',
+                'professional-experience': 'الخبرة المهنية',
+                'software-developer': 'مطور برمجيات',
+                'doing': 'Doing',
+                'collaborated-platform': 'شاركت في تطوير منصة مبنية على Laravel لإنشاء المتاجر الإلكترونية',
+                'enhanced-ui': 'قمت بتحسين واجهة المستخدم باستخدام Bootstrap وTailwind CSS',
+                'participated-development': 'شاركت في تطوير الميزات وإصلاح الأخطاء ومراجعة الشيفرة البرمجية',
+                'frontend-skills': 'مهارات الواجهة الأمامية',
+                'backend-skills': 'مهارات الواجهة الخلفية',
+                'tools-technologies': 'الأدوات والتقنيات',
+                'projects': 'المشاريع',
+                'simple-chat-app': 'تطبيق دردشة',
+                'developed-chat-app': 'طورت تطبيق دردشة فوري باستخدام Flutter وFirebase، مع التركيز على تصميم سهل الاستخدام وأداء سلس',
+                'education': 'التعليم',
+                'university-name': 'بكالوريوس في علوم الحاسوب',
+                'graduated': 'سنة التخرج: ٢٠٢٣',
+                'focused-software': 'تخصص في تكنولوجيا المعلومات وتطوير التطبيقات',
+                'interests': 'الاهتمامات',
+                'enthusiastic-exploring': 'شغوف باكتشاف التقنيات الجديدة والمساهمة في المشاريع مفتوحة المصدر والمشاركة في مجتمع المطورين من خلال هاكاثونات والفعاليات التقنية',
+                'contact': 'معلومات الاتصال',
+                'soft-skills': 'المهارات الشخصية',
+                'languages': 'اللغات',
+                'analytical-skills': 'مهارات تحليلية',
+                'teamwork': 'العمل الجماعي',
+                'problem-solving': 'حل المشكلات',
+                'communication': 'مهارات التواصل',
+                'adaptability': 'القدرة على التكيف',
+                'time-management': 'إدارة الوقت',
+                'leadership': 'القيادة',
+                'creativity': 'الإبداع',
+                'attention-to-detail': 'الاهتمام بالتفاصيل',
+                'critical-thinking': 'التفكير النقدي',
+                'english': 'الإنجليزية',
+                'arabic': 'العربية',
+                'location': 'صنعاء، اليمن'
+            }
+        };
+
+        // Function to set initial theme based on local storage or default to dark
+        function setInitialTheme() {
+            const storedTheme = localStorage.getItem('theme');
+            if (storedTheme === 'light') {
+                body.classList.add('light-theme');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+
+        // Function to set initial language based on local storage or default to English
+        function setInitialLanguage() {
+            const storedLanguage = localStorage.getItem('language');
+            if (storedLanguage === 'ar') {
+                document.documentElement.lang = 'ar';
+                languageToggle.innerHTML = '<i class="fas fa-globe"></i>';
+                translatePage('ar');
+            } else {
+                document.documentElement.lang = 'en';
+                languageToggle.innerHTML = '<i class="fas fa-globe"></i>';
+                translatePage('en');
+            }
+        }
+
+        // Function to translate the page
+        function translatePage(lang) {
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Set direction based on language
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            // Add RTL-specific direction to containers
+            document.querySelectorAll('.soft-skills, .contact-info').forEach(element => {
+                element.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            });
+        }
+
+        setInitialTheme();
+        setInitialLanguage();
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const isLightTheme = body.classList.contains('light-theme');
+            themeToggle.innerHTML = isLightTheme ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
+        });
+
+        languageToggle.addEventListener('click', () => {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'en' ? 'ar' : 'en';
+            document.documentElement.lang = newLang;
+            languageToggle.innerHTML = '<i class="fas fa-globe"></i>';
+            localStorage.setItem('language', newLang);
+            translatePage(newLang);
+        });
+    </script>
+</body>
+
+</html>
