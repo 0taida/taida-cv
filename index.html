@@ -730,13 +730,48 @@
             box-shadow: 0 0 4px rgba(0, 170, 255, 0.5);
         }
 
+        .project-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0, 170, 255, 0.3), transparent);
+            margin: 2rem 0;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-badge {
+            background: rgba(0, 170, 255, 0.15);
+            color: #00aaff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 170, 255, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-badge i {
+            font-size: 0.9rem;
+        }
+
+        body.light-theme .tech-badge {
+            background: rgba(30, 64, 175, 0.1);
+            color: #1e40af;
+            border-color: rgba(30, 64, 175, 0.2);
+        }
+
     </style>
 </head>
 
 
 <body>
     <div class="theme-language-toggles">
-        <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+        <button id="theme-toggle" style="display: none;" ><i class="fas fa-moon"></i></button>
         <button id="language-toggle"><i class="fas fa-globe"></i></button>
     </div>
     <div class="sidebar">
@@ -804,14 +839,20 @@
 
     <div class="main-content">
         <section id="about" class="section">
-            <h2 class="section-title" data-translate="professional-summary"><i class="fas fa-user"></i> Professional Summary</h2>
+            <h2 class="section-title">
+                <i class="fas fa-user-tie"></i>
+                <span data-translate="professional-summary">Professional Summary</span>
+            </h2>
             <p data-translate="passionate-developer">Passionate software developer with nearly a year of experience at Doing, specializing in Laravel, Vue.js,
                 Bootstrap, and Tailwind. Familiar with React and Remix, with a keen interest in mobile development and a
                 completed Flutter-based chat app project.</p>
         </section>
 
         <section id="experience" class="section">
-            <h2 class="section-title" data-translate="professional-experience"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <h2 class="section-title">
+                <i class="fas fa-briefcase"></i>
+                <span data-translate="professional-experience">Professional Experience</span>
+            </h2>
             <div>
                 <h3 data-translate="software-developer">Software Developer</h3>
                 <span class="experience-date">2023 - Present</span>
@@ -826,7 +867,10 @@
 
         <div class="skills-container">
             <section id="frontend-skills" class="section">
-                <h2 class="section-title" data-translate="frontend-skills"><i class="fas fa-code"></i> Frontend Skills</h2>
+                <h2 class="section-title">
+                    <i class="fas fa-laptop-code"></i>
+                    <span data-translate="frontend-skills">Frontend Skills</span>
+                </h2>
                 <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
                     <li class="skill-chip">HTML</li>
                     <li class="skill-chip">CSS</li>
@@ -840,7 +884,10 @@
             </section>
 
             <section id="backend-skills" class="section">
-                <h2 class="section-title" data-translate="backend-skills"><i class="fas fa-server"></i> Backend Skills</h2>
+                <h2 class="section-title">
+                    <i class="fas fa-server"></i>
+                    <span data-translate="backend-skills">Backend Skills</span>
+                </h2>
                 <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
                     <li class="skill-chip">Node.js</li>
                     <li class="skill-chip">PHP</li>
@@ -851,7 +898,10 @@
             </section>
 
             <section id="tools-and-technologies" class="section">
-                <h2 class="section-title" data-translate="tools-technologies"><i class="fas fa-wrench"></i> Tools & Technologies</h2>
+                <h2 class="section-title">
+                    <i class="fas fa-tools"></i>
+                    <span data-translate="tools-technologies">Tools & Technologies</span>
+                </h2>
                 <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
                     <li class="skill-chip">Git</li>
                     <li class="skill-chip">Docker</li>
@@ -868,26 +918,80 @@
         </div>
 
         <section id="projects" class="section">
-            <h2 class="section-title" data-translate="projects"><i class="fas fa-code"></i> Projects</h2>
+            <h2 class="section-title">
+                <i class="fas fa-code-branch"></i>
+                <span data-translate="projects">Projects</span>
+            </h2>
+            
             <div>
-                <h3 data-translate="simple-chat-app">Simple Chat App</h3>
-                <p data-translate="developed-chat-app">Developed a real-time chat app using Flutter and Firebase, focusing on user-friendly design and
-                    seamless functionality.</p>
+                <div class="project-header">
+                    <h3 data-translate="docker-explorer">Docker Volume Explorer</h3>
+                    <span class="tech-badge">
+                        <i class="fab fa-react"></i>
+                        Remix.js
+                    </span>
+                </div>
+                <p data-translate="docker-explorer-desc">A modern web application built with Remix.js that provides a sleek, dark-themed interface for exploring and managing Docker volumes. This tool offers an intuitive tree-view interface for browsing volume contents, with real-time file management capabilities.</p>
+            </div>
+
+            <div class="project-divider"></div>
+
+            <div>
+                <div class="project-header">
+                    <h3 data-translate="opencv-project">OpenCV Image & Video Filters</h3>
+                    <span class="tech-badge">
+                        <i class="fab fa-python"></i>
+                        Python
+                    </span>
+                </div>
+                <p data-translate="opencv-desc">A Python project demonstrating various image and video processing techniques using OpenCV. Features include video capture and processing, image manipulation and filtering, real-time image effects, and multi-image display functionality.</p>
+            </div>
+
+            <div class="project-divider"></div>
+
+            <div>
+                <div class="project-header">
+                    <h3 data-translate="proxy-project">Reverse Proxy Setup with Caddy</h3>
+                    <span class="tech-badge">
+                        <i class="fas fa-server"></i>
+                        Caddy
+                    </span>
+                </div>
+                <p data-translate="proxy-desc">This project demonstrates a reverse proxy setup using Caddy server to manage multiple web applications. It includes two separate web applications that are served through Caddy's reverse proxy, featuring automatic HTTPS and Docker containerization.</p>
+            </div>
+
+            <div class="project-divider"></div>
+
+            <div>
+                <div class="project-header">
+                    <h3 data-translate="simple-chat-app">Simple Chat App</h3>
+                    <span class="tech-badge">
+                        <i class="fas fa-mobile-alt"></i>
+                        Flutter
+                    </span>
+                </div>
+                <p data-translate="developed-chat-app">Developed a real-time chat app using Flutter and Firebase, focusing on user-friendly design and seamless functionality.</p>
             </div>
         </section>
 
         <section id="education" class="section">
-            <h2 class="section-title" data-translate="education"><i class="fas fa-graduation-cap"></i> Education</h2>
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+                <span data-translate="education">Education</span>
+            </h2>
             <div>
                 <h3 data-translate="university-name">Bachelor's in Information Technology</h3>
-                <p data-translate="university-name">University of Yemen</p>
+                <p data-translate="name-of-university">University of Yemen</p>
                 <span class="experience-date" data-translate="graduated">Graduated: 2023</span>
                 <p data-translate="focused-software">Focused on information technology and application development.</p>
             </div>
         </section>
 
         <section id="interests" class="section">
-            <h2 class="section-title" data-translate="interests"><i class="fas fa-heart"></i> Interests</h2>
+            <h2 class="section-title">
+                <i class="fas fa-star"></i>
+                <span data-translate="interests">Interests</span>
+            </h2>
             <p data-translate="enthusiastic-exploring">Enthusiastic about exploring new technologies, contributing to open-source projects, and engaging with
                 the developer community through hackathons and tech events.
 
@@ -920,6 +1024,7 @@
                 'developed-chat-app': 'Developed a real-time chat app using Flutter and Firebase, focusing on user-friendly design and seamless functionality.',
                 'education': 'Education',
                 'university-name': 'Bachelor\'s in Information Technology',
+                'name-of-university': 'University of Yemen',
                 'graduated': 'Graduated: 2023',
                 'focused-software': 'Focused on information technology and application development.',
                 'interests': 'Interests',
@@ -939,7 +1044,19 @@
                 'critical-thinking': 'Critical Thinking',
                 'english': 'English',
                 'arabic': 'Arabic',
-                'location': 'Sana\'a, Yemen'
+                'location': 'Sana\'a, Yemen',
+                'docker-explorer': 'Docker Volume Explorer',
+                'docker-explorer-desc': 'A modern web application built with Remix.js that provides a sleek, dark-themed interface for exploring and managing Docker volumes. This tool offers an intuitive tree-view interface for browsing volume contents, with real-time file management capabilities.',
+                'key-features': 'Key Features:',
+                'tree-view': 'Tree View Interface with hierarchical display and collapsible folders',
+                'file-management': 'Comprehensive file management with real-time editing capabilities',
+                'modern-ui': 'Modern UI/UX with dark theme and smooth animations',
+                'docker-integration': 'Seamless Docker volume management and real-time file system operations',
+                'technologies-used': 'Technologies Used:',
+                'opencv-project': 'OpenCV Image & Video Filters',
+                'opencv-desc': 'A Python project demonstrating various image and video processing techniques using OpenCV. Features include video capture and processing, image manipulation and filtering, real-time image effects, and multi-image display functionality.',
+                'proxy-project': 'Reverse Proxy Setup with Caddy',
+                'proxy-desc': 'This project demonstrates a reverse proxy setup using Caddy server to manage multiple web applications. It includes two separate web applications that are served through Caddy\'s reverse proxy, featuring automatic HTTPS and Docker containerization.'
             },
             ar: {
                 'professional-summary': 'الملف المهني',
@@ -958,6 +1075,7 @@
                 'developed-chat-app': 'طورت تطبيق دردشة فوري باستخدام Flutter وFirebase، مع التركيز على تصميم سهل الاستخدام وأداء سلس',
                 'education': 'التعليم',
                 'university-name': 'بكالوريوس في علوم الحاسوب',
+                'name-of-university': 'جامعة اليمن',
                 'graduated': 'سنة التخرج: ٢٠٢٣',
                 'focused-software': 'تخصص في تكنولوجيا المعلومات وتطوير التطبيقات',
                 'interests': 'الاهتمامات',
@@ -977,7 +1095,19 @@
                 'critical-thinking': 'التفكير النقدي',
                 'english': 'الإنجليزية',
                 'arabic': 'العربية',
-                'location': 'صنعاء، اليمن'
+                'location': 'صنعاء، اليمن',
+                'docker-explorer': 'مستكشف مجلدات Docker',
+                'docker-explorer-desc': 'تطبيق ويب حديث مبني باستخدام Remix.js يوفر واجهة داكنة أنيقة لاستكشاف وإدارة مجلدات Docker. تقدم هذه الأداة واجهة مستخدم سهلة لتصفح محتويات المجلدات، مع إمكانيات إدارة الملفات في الوقت الفعلي.',
+                'key-features': 'الميزات الرئيسية:',
+                'tree-view': 'واجهة عرض شجرية مع عرض هرمي ومجلدات قابلة للطي',
+                'file-management': 'إدارة شاملة للملفات مع إمكانيات تحرير في الوقت الفعلي',
+                'modern-ui': 'واجهة مستخدم حديثة مع سمة داكنة وحركات سلسة',
+                'docker-integration': 'إدارة سلسة لمجلدات Docker وعمليات نظام الملفات في الوقت الفعلي',
+                'technologies-used': 'التقنيات المستخدمة:',
+                'opencv-project': 'مرشحات الصور والفيديو OpenCV',
+                'opencv-desc': 'مشروع Python يوضح تقنيات معالجة الصور والفيديو المختلفة باستخدام OpenCV. يتضمن التقاط ومعالجة الفيديو، معالجة وتصفية الصور، تأثيرات الصور في الوقت الفعلي، وعرض الصور المتعددة.',
+                'proxy-project': 'إعداد Reverse Proxy باستخدام Caddy',
+                'proxy-desc': 'يوضح هذا المشروع إعداد reverse proxy باستخدام خادم Caddy لإدارة تطبيقات الويب المتعددة. يتضمن تطبيقي ويب منفصلين يتم تقديمهما من خلال reverse proxy الخاص بـ Caddy، مع ميزة HTTPS التلقائي وحاويات Docker.'
             }
         };
 
