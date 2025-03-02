@@ -395,11 +395,13 @@
         .theme-language-toggles {
             position: fixed;
             top: 10px;
-            right: 20px;
+            right: 10px;
+            left: auto !important;
             display: flex;
             gap: 10px;
             z-index: 1000;
-            direction: ltr;
+            direction: ltr !important;
+            transform: none !important;
         }
 
         .theme-language-toggles button {
@@ -411,7 +413,8 @@
             font-size: 1rem;
             cursor: pointer;
             box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s ease;
+            transition: background-color 0.3s ease !important;
+            animation: none !important;
             width: 35px;
             height: 35px;
             display: flex;
@@ -422,7 +425,10 @@
 
         .theme-language-toggles button:hover {
             background: rgba(0, 170, 255, 0.3);
-            transition: all 0.5s ease;
+        }
+
+        .theme-language-toggles button:active {
+            transition: none;
         }
 
         body.light-theme {
@@ -703,10 +709,10 @@
 
         /* Override RTL direction for toggle buttons */
         body[dir="rtl"] .theme-language-toggles {
-            right: 20px;
-            left: auto;
-            flex-direction: row; /* Force row direction */
-            direction: ltr;
+            right: 10px !important;
+            left: auto !important;
+            direction: ltr !important;
+            transform: none !important;
         }
 
         /* Update text colors in light mode to match dark mode */
@@ -1294,13 +1300,25 @@
             localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
         });
 
-        languageToggle.addEventListener('click', () => {
+        languageToggle.addEventListener('click', function(e) {
+            // Store the current position
+            const toggles = document.querySelector('.theme-language-toggles');
+            const rect = toggles.getBoundingClientRect();
+            
+            // Apply the language change
             const currentLang = document.documentElement.lang;
             const newLang = currentLang === 'en' ? 'ar' : 'en';
             document.documentElement.lang = newLang;
-            languageToggle.innerHTML = '<i class="fas fa-globe"></i>';
             localStorage.setItem('language', newLang);
             translatePage(newLang);
+            
+            // Force position to remain the same
+            setTimeout(function() {
+                toggles.style.position = 'fixed';
+                toggles.style.top = '10px';
+                toggles.style.right = '10px';
+                toggles.style.left = 'auto';
+            }, 0);
         });
     </script>
 </body>
