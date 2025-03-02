@@ -61,23 +61,24 @@
 
         .profile-img {
             width: 200px;
-            height: 150px;
-            border-radius: 10px;
-            margin: 3.4rem auto 2rem;
-            border: 1px solid #00aaff;
-            box-shadow: inset 0 0 8px rgba(0, 170, 255, 0.5);
-            animation: pulse 2s ease infinite;
-            position: relative;
+            height: 200px;
+            border-radius: 50%;
+            margin: 2rem auto;
+            border: 2px solid #00aaff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             object-fit: cover;
+            display: block;
+            animation: subtle-pulse 3s ease-in-out infinite;
         }
 
-  
-        @keyframes pulse {
+        @keyframes subtle-pulse {
             0%, 100% {
                 transform: scale(1);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             }
             50% {
-                transform: scale(1.05);
+                transform: scale(1.02);
+                box-shadow: 0 6px 15px rgba(0, 170, 255, 0.2);
             }
         }
 
@@ -843,9 +844,8 @@
                 <i class="fas fa-user-tie"></i>
                 <span data-translate="professional-summary">Professional Summary</span>
             </h2>
-            <p data-translate="passionate-developer">Passionate software developer with nearly a year of experience at Doing, specializing in Laravel, Vue.js,
-                Bootstrap, and Tailwind. Familiar with React and Remix, with a keen interest in mobile development and a
-                completed Flutter-based chat app project.</p>
+            <p data-translate="passionate-developer">Passionate software developer with over a year of experience, specializing in Laravel, Vue.js,
+                Bootstrap, and Tailwind. Familiar with React and Remix, with a strong focus on creating responsive and user-friendly web applications.</p>
         </section>
 
         <section id="experience" class="section">
@@ -859,7 +859,7 @@
                 <p data-translate="doing">Doing</p>
                 <ul>
                     <li data-translate="collaborated-platform">Collaborated on a Laravel-based platform enabling online store creation.</li>
-                    <li data-translate="enhanced-ui">Enhanced UI using Bootstrap and Tailwind CSS.</li>
+                    <li data-translate="enhanced-ui">Enhanced UI using Vue.js, Bootstrap and Tailwind CSS.</li>
                     <li data-translate="participated-development">Participated in feature development, debugging, and code reviews.</li>
                 </ul>
             </div>
@@ -890,6 +890,7 @@
                 </h2>
                 <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
                     <li class="skill-chip">Node.js</li>
+                    <li class="skill-chip">Express.js</li>
                     <li class="skill-chip">PHP</li>
                     <li class="skill-chip">Laravel</li>
                     <li class="skill-chip">MySQL</li>
@@ -906,13 +907,13 @@
                     <li class="skill-chip">Git</li>
                     <li class="skill-chip">Docker</li>
                     <li class="skill-chip">Firebase</li>
-                    <li class="skill-chip">Caddy</li>
-                    <li class="skill-chip">VS Code</li>
+                    <!-- <li class="skill-chip">Caddy</li> -->
+                    <!-- <li class="skill-chip">VS Code</li> -->
                     <li class="skill-chip">GitHub</li>
                     <li class="skill-chip">Postman</li>
                     <li class="skill-chip">npm</li>
                     <li class="skill-chip">Ubuntu</li>
-                </ul>
+                    <li class="skill-chip">Huly App</li>
                 </ul>
             </section>
         </div>
@@ -972,6 +973,23 @@
                 </div>
                 <p data-translate="developed-chat-app">Developed a real-time chat app using Flutter and Firebase, focusing on user-friendly design and seamless functionality.</p>
             </div>
+
+            <div class="project-divider"></div>
+
+            <div>
+                <div class="project-header">
+                    <h3 data-translate="sms-project">SMS Management System</h3>
+                    <span class="tech-badge">
+                        <i class="fab fa-react"></i>
+                        React
+                    </span>
+                    <span class="tech-badge">
+                        <i class="fab fa-node-js"></i>
+                        Express.js
+                    </span>
+                </div>
+                <p data-translate="sms-project-desc">Developed a comprehensive SMS Management System with React frontend and Express.js backend. Features include contact management with CRUD operations and import functionality, campaign management, interactive chat interface, user management, configurable SMTP/SMPP settings, API integration for email and SMS delivery, detailed campaign analytics, and reporting dashboard.</p>
+            </div>
         </section>
 
         <section id="education" class="section">
@@ -1009,12 +1027,12 @@
         const translations = {
             en: {
                 'professional-summary': 'Professional Summary',
-                'passionate-developer': 'Passionate software developer with nearly a year of experience at Doing, specializing in Laravel, Vue.js, Bootstrap, and Tailwind. Familiar with React and Remix, with a keen interest in mobile development and a completed Flutter-based chat app project.',
+                'passionate-developer': 'Passionate software developer with over a year of experience, specializing in Laravel, Vue.js, Bootstrap, and Tailwind. Familiar with React and Remix, with a strong focus on creating responsive and user-friendly web applications.',
                 'professional-experience': 'Professional Experience',
                 'software-developer': 'Software Developer',
                 'doing': 'Doing',
                 'collaborated-platform': 'Collaborated on a Laravel-based platform enabling online store creation.',
-                'enhanced-ui': 'Enhanced UI using Bootstrap and Tailwind CSS.',
+                'enhanced-ui': 'Enhanced UI using Vue.js, Bootstrap and Tailwind CSS.',
                 'participated-development': 'Participated in feature development, debugging, and code reviews.',
                 'frontend-skills': 'Frontend Skills',
                 'backend-skills': 'Backend Skills',
@@ -1056,16 +1074,18 @@
                 'opencv-project': 'OpenCV Image & Video Filters',
                 'opencv-desc': 'A Python project demonstrating various image and video processing techniques using OpenCV. Features include video capture and processing, image manipulation and filtering, real-time image effects, and multi-image display functionality.',
                 'proxy-project': 'Reverse Proxy Setup with Caddy',
-                'proxy-desc': 'This project demonstrates a reverse proxy setup using Caddy server to manage multiple web applications. It includes two separate web applications that are served through Caddy\'s reverse proxy, featuring automatic HTTPS and Docker containerization.'
+                'proxy-desc': 'This project demonstrates a reverse proxy setup using Caddy server to manage multiple web applications. It includes two separate web applications that are served through Caddy\'s reverse proxy, featuring automatic HTTPS and Docker containerization.',
+                'sms-project': 'SMS Management System',
+                'sms-project-desc': 'Developed a comprehensive SMS Management System with React frontend and Express.js backend. Features include contact management with CRUD operations and import functionality, campaign management, interactive chat interface, user management, configurable SMTP/SMPP settings, API integration for email and SMS delivery, detailed campaign analytics, and reporting dashboard.'
             },
             ar: {
                 'professional-summary': 'الملف المهني',
-                'passionate-developer': 'مطور برمجيات شغوف مع خبرة تقارب العام في شركة Doing، متخصص في Laravel وVue.js وBootstrap وTailwind. لدي معرفة بـ React وRemix، مع شغف كبير بتطوير تطبيقات الهواتف المحمولة وقد أنجزت مشروع تطبيق دردشة باستخدام Flutter.',
+                'passionate-developer': 'مطور برمجيات شغوف مع خبرة تزيد عن العام، متخصص في Laravel وVue.js وBootstrap وTailwind. لدي معرفة بـ React وRemix، مع تركيز قوي على إنشاء تطبيقات ويب متجاوبة وسهلة الاستخدام.',
                 'professional-experience': 'الخبرة المهنية',
                 'software-developer': 'مطور برمجيات',
                 'doing': 'Doing',
                 'collaborated-platform': 'شاركت في تطوير منصة مبنية على Laravel لإنشاء المتاجر الإلكترونية',
-                'enhanced-ui': 'قمت بتحسين واجهة المستخدم باستخدام Bootstrap وTailwind CSS',
+                'enhanced-ui': 'قمت بتحسين واجهة المستخدم باستخدام Vue.js وBootstrap وTailwind CSS',
                 'participated-development': 'شاركت في تطوير الميزات وإصلاح الأخطاء ومراجعة الشيفرة البرمجية',
                 'frontend-skills': 'مهارات الواجهة الأمامية',
                 'backend-skills': 'مهارات الواجهة الخلفية',
@@ -1107,7 +1127,9 @@
                 'opencv-project': 'مرشحات الصور والفيديو OpenCV',
                 'opencv-desc': 'مشروع Python يوضح تقنيات معالجة الصور والفيديو المختلفة باستخدام OpenCV. يتضمن التقاط ومعالجة الفيديو، معالجة وتصفية الصور، تأثيرات الصور في الوقت الفعلي، وعرض الصور المتعددة.',
                 'proxy-project': 'إعداد Reverse Proxy باستخدام Caddy',
-                'proxy-desc': 'يوضح هذا المشروع إعداد reverse proxy باستخدام خادم Caddy لإدارة تطبيقات الويب المتعددة. يتضمن تطبيقي ويب منفصلين يتم تقديمهما من خلال reverse proxy الخاص بـ Caddy، مع ميزة HTTPS التلقائي وحاويات Docker.'
+                'proxy-desc': 'يوضح هذا المشروع إعداد reverse proxy باستخدام خادم Caddy لإدارة تطبيقات الويب المتعددة. يتضمن تطبيقي ويب منفصلين يتم تقديمهما من خلال reverse proxy الخاص بـ Caddy، مع ميزة HTTPS التلقائي وحاويات Docker.',
+                'sms-project': 'نظام إدارة الرسائل القصيرة',
+                'sms-project-desc': 'طورت نظام شامل لإدارة الرسائل القصيرة باستخدام React للواجهة الأمامية وExpress.js للواجهة الخلفية. تشمل الميزات إدارة جهات الاتصال مع عمليات الإنشاء والقراءة والتحديث والحذف وإمكانية الاستيراد، وإدارة الحملات، وواجهة دردشة تفاعلية، وإدارة المستخدمين، وإعدادات SMTP/SMPP قابلة للتكوين، وتكامل API لإرسال البريد الإلكتروني والرسائل القصيرة، وتحليلات مفصلة للحملات، ولوحة تقارير.'
             }
         };
 
