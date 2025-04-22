@@ -26,12 +26,7 @@ Switch between **dark** and **classic black & white** (light) themes, and toggle
 
 ## 📸 Preview
 
-| Dark Mode | Classic CV (Light) |
-|-----------|--------------------|
-| ![Dark Mode Screenshot](https://user-images.githubusercontent.com/your-dark-screenshot.png) | ![Light Mode Screenshot](https://user-images.githubusercontent.com/your-light-screenshot.png) |
-
----
-
+**Live :** 👉 [https://0taida.github.io/taida-cv/](https://0taida.github.io/taida-cv/)
 
 
 
