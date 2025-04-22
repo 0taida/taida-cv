@@ -432,88 +432,96 @@
         }
 
         body.light-theme {
-            background: linear-gradient(135deg, #f6f7ff 0%, #e9f0ff 100%);
-            color: #2d3748;
+            background: #ffffff;
+            color: #333333;
         }
 
         body.light-theme .sidebar-section,
         body.light-theme .section {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 
-                0 4px 6px -1px rgba(0, 0, 0, 0.05),
-                0 10px 15px -3px rgba(0, 0, 0, 0.05),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
-            color: #e0e0e0;
+            background: #ffffff;
+            backdrop-filter: none;
+            border: 1px solid #dddddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            color: #333333;
         }
 
         body.light-theme .section:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.85);
-            box-shadow: 
-                0 8px 12px -1px rgba(0, 0, 0, 0.08),
-                0 14px 20px -3px rgba(0, 0, 0, 0.08),
-                inset 0 0 0 1.5px rgba(255, 255, 255, 0.9);
+            transform: none;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #cccccc;
         }
 
         body.light-theme .section-title {
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: none;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+            color: #000000;
         }
 
         body.light-theme .contact-info h3,
         body.light-theme .skills h3,
         body.light-theme .languages h3,
         body.light-theme .soft-skills h3 {
-            color: #1e40af;
+            color: #000000;
         }
 
         body.light-theme .contact-info ul li,
-        body.light-theme .soft-skills ul li {
-            color: #4b5563;
+        body.light-theme .soft-skills ul li,
+        body.light-theme p,
+        body.light-theme li {
+            color: #333333;
         }
 
         body.light-theme .skill-chip {
-            background: rgba(30, 64, 175, 0.1);
-            color: #1e40af;
-            border: 1px solid rgba(30, 64, 175, 0.2);
+            background: #f5f5f5;
+            color: #333333;
+            border: 1px solid #dddddd;
         }
 
         body.light-theme .skill-chip:hover {
-            background: rgba(30, 64, 175, 0.15);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(30, 64, 175, 0.15);
+            background: #eeeeee;
+            transform: none;
         }
 
         body.light-theme .language-bar {
-            background: rgba(30, 64, 175, 0.1);
-            border: 1px solid rgba(30, 64, 175, 0.2);
+            background: #f5f5f5;
+            border: 1px solid #dddddd;
         }
 
         body.light-theme .language-bar span {
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-        }
-
-        body.light-theme .theme-language-toggles button {
-            background: rgba(30, 64, 175, 0.1);
-            color: #1e40af;
-            border: 1px solid rgba(30, 64, 175, 0.2);
-        }
-
-        body.light-theme .theme-language-toggles button:hover {
-            background: rgba(30, 64, 175, 0.15);
-            transform: translateY(-2px);
+            background: #555555;
+            box-shadow: none;
         }
 
         body.light-theme .contact-info ul li i {
-            color: #1e40af;
+            color: #555555;
         }
 
         body.light-theme .soft-skills ul li::before {
-            background: #1e40af;
-            box-shadow: 0 0 4px rgba(30, 64, 175, 0.5);
+            background: #555555;
+            box-shadow: none;
+        }
+
+        body.light-theme .theme-language-toggles button {
+            background: #f5f5f5;
+            color: #333333;
+            border: 1px solid #dddddd;
+        }
+
+        body.light-theme .theme-language-toggles button:hover {
+            background: #eeeeee;
+            transform: none;
+        }
+
+        body.light-theme .project-divider {
+            background: linear-gradient(to right, transparent, #dddddd, transparent);
+        }
+
+        body.light-theme .tech-badge {
+            background: #f5f5f5;
+            color: #333333;
+            border: 1px solid #dddddd;
         }
 
         /* Add RTL support styles */
@@ -548,12 +556,10 @@
 
         /* Add hover effect for sections in light mode */
         body.light-theme .section:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.85);
-            box-shadow: 
-                0 8px 12px -1px rgba(0, 0, 0, 0.08),
-                0 14px 20px -3px rgba(0, 0, 0, 0.08),
-                inset 0 0 0 1.5px rgba(255, 255, 255, 0.9);
+            transform: none;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #cccccc;
         }
 
         /* Update RTL support for soft skills */
@@ -718,14 +724,11 @@
         /* Update text colors in light mode to match dark mode */
         body.light-theme .sidebar-section,
         body.light-theme .section {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 
-                0 4px 6px -1px rgba(0, 0, 0, 0.05),
-                0 10px 15px -3px rgba(0, 0, 0, 0.05),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
-            color: #e0e0e0;  /* Match dark mode text color */
+            background: #ffffff;
+            backdrop-filter: none;
+            border: 1px solid #dddddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            color: #333333;
         }
 
         /* Update all text colors to match dark mode */
@@ -733,48 +736,50 @@
         body.light-theme .soft-skills ul li,
         body.light-theme p,
         body.light-theme li {
-            color: #94a3b8;  /* Match dark mode text color */
+            color: #333333;
         }
 
         body.light-theme .contact-info h3,
         body.light-theme .skills h3,
         body.light-theme .languages h3,
         body.light-theme .soft-skills h3 {
-            color: #00aaff;  /* Match dark mode heading color */
+            color: #000000;
         }
 
         body.light-theme .section-title {
-            background: linear-gradient(45deg, #00aaff, #36c6da);  /* Match dark mode gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: none;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+            color: #000000;
         }
 
         /* Update language bar colors */
         body.light-theme .language-bar span {
-            background: #00aaff;  /* Match dark mode accent color */
-            box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+            background: #555555;
+            box-shadow: none;
         }
 
         /* Update skill chips */
         body.light-theme .skill-chip {
-            background: rgba(0, 170, 255, 0.15);
-            color: #00aaff;
-            border: 1px solid rgba(0, 170, 255, 0.2);
+            background: #f5f5f5;
+            color: #333333;
+            border: 1px solid #dddddd;
         }
 
         body.light-theme .skill-chip:hover {
-            background: rgba(0, 170, 255, 0.2);
+            background: #eeeeee;
+            transform: none;
         }
 
         /* Update icons color */
         body.light-theme .contact-info ul li i {
-            color: #00aaff;
+            color: #555555;
         }
 
         /* Update soft skills dots */
         body.light-theme .soft-skills ul li::before {
-            background: #00aaff;
-            box-shadow: 0 0 4px rgba(0, 170, 255, 0.5);
+            background: #555555;
+            box-shadow: none;
         }
 
         .project-divider {
@@ -886,11 +891,11 @@
 
 <body>
     <div class="theme-language-toggles">
-        <button id="theme-toggle" style="display: none;" ><i class="fas fa-moon"></i></button>
+        <button id="theme-toggle"  ><i class="fas fa-moon"></i></button>
         <button id="language-toggle"><i class="fas fa-globe"></i></button>
     </div>
     <div class="sidebar">
-        <img src="./profile.webp" alt="Profile Image" class="profile-img">
+        <img src="./face.png" alt="Profile Image" class="profile-img">
         <div class="sidebar-section">
             <div class="contact-info">
                 <h3 data-translate="contact">Contact</h3>
