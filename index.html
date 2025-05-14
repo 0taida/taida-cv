@@ -248,8 +248,12 @@
             bottom: -5px;
             width: 0;
             height: 2px;
-            background: #00aaff;
+            background: #00aaff; /* Default for dark theme */
             transition: all 0.5s ease;
+        }
+
+        body.light-theme .section-title::after {
+            background: #000000; /* Black for classic light theme */
         }
 
         .section:hover .section-title::after {
@@ -812,8 +816,8 @@
         }
 
         body.light-theme .tech-badge {
-            background: rgba(30, 64, 175, 0.1);
-            color: #1e40af;
+            background: rgba(137, 142, 158, 0.1);
+            color: #000000;
             border-color: rgba(30, 64, 175, 0.2);
         }
 
@@ -1084,6 +1088,23 @@
 
             <div>
                 <div class="project-header">
+                    <h3 data-translate="rai-platform">Rai Platform</h3>
+                    <span class="tech-badge">
+                        <i class="fab fa-vuejs"></i>
+                        Vue.js
+                    </span>
+                    <span class="tech-badge">
+                        <i class="fab fa-python"></i>
+                        Django
+                    </span>
+                </div>
+                <p data-translate="rai-platform-desc">An advanced survey platform built with Vue.js and Django, offering a comprehensive suite for survey creation, distribution, and analysis. Key features include an intuitive drag-and-drop survey builder with 20+ question types, customizable themes, and conditional logic. It supports multi-channel distribution with audience targeting and privacy controls. The platform provides powerful analytics through interactive dashboards, automated reports, and data export options, all secured with enterprise-grade security like end-to-end encryption and GDPR compliance. It also leverages AI for sentiment analysis, trend detection, and smart recommendations, along with extensive customization options including white labeling and API integration.</p>
+            </div>
+
+            <div class="project-divider"></div>
+
+            <div>
+                <div class="project-header">
                     <h3 data-translate="simple-chat-app">Simple Chat App</h3>
                     <span class="tech-badge">
                         <i class="fas fa-mobile-alt"></i>
@@ -1194,6 +1215,8 @@
                 'opencv-desc': 'A Python project demonstrating various image and video processing techniques using OpenCV. Features include video capture and processing, image manipulation and filtering, real-time image effects, and multi-image display functionality.',
                 'proxy-project': 'Reverse Proxy Setup with Caddy',
                 'proxy-desc': 'This project demonstrates a reverse proxy setup using Caddy server to manage multiple web applications. It includes two separate web applications that are served through Caddy\'s reverse proxy, featuring automatic HTTPS and Docker containerization.',
+                'rai-platform': 'Rai Platform',
+                'rai-platform-desc': 'An advanced survey platform built with Vue.js and Django, offering a comprehensive suite for survey creation, distribution, and analysis. Key features include an intuitive drag-and-drop survey builder with 20+ question types, customizable themes, and conditional logic. It supports multi-channel distribution with audience targeting and privacy controls. The platform provides powerful analytics through interactive dashboards, automated reports, and data export options, all secured with enterprise-grade security like end-to-end encryption and GDPR compliance. It also leverages AI for sentiment analysis, trend detection, and smart recommendations, along with extensive customization options including white labeling and API integration.',
                 'sms-project': 'SMS Management System',
                 'sms-project-desc': 'Developed a comprehensive SMS Management System with React frontend and Express.js backend. Features include contact management with CRUD operations and import functionality, campaign management, interactive chat interface, user management, configurable SMTP/SMPP settings, API integration for email and SMS delivery, detailed campaign analytics, and reporting dashboard.'
             },
@@ -1247,6 +1270,8 @@
                 'opencv-desc': 'مشروع Python يوضح تقنيات معالجة الصور والفيديو المختلفة باستخدام OpenCV. يتضمن التقاط ومعالجة الفيديو، معالجة وتصفية الصور، تأثيرات الصور في الوقت الفعلي، وعرض الصور المتعددة.',
                 'proxy-project': 'إعداد Reverse Proxy باستخدام Caddy',
                 'proxy-desc': 'يوضح هذا المشروع إعداد reverse proxy باستخدام خادم Caddy لإدارة تطبيقات الويب المتعددة. يتضمن تطبيقي ويب منفصلين يتم تقديمهما من خلال reverse proxy الخاص بـ Caddy، مع ميزة HTTPS التلقائي وحاويات Docker.',
+                'rai-platform': 'منصة رأي',
+                'rai-platform-desc': 'منصة استطلاعات متقدمة مبنية باستخدام Vue.js و Django، تقدم مجموعة شاملة لإنشاء الاستطلاعات وتوزيعها وتحليلها. تشمل الميزات الرئيسية أداة إنشاء استطلاعات سهلة الاستخدام بالسحب والإفلات مع أكثر من 20 نوعًا من الأسئلة، وسمات قابلة للتخصيص، ومنطق شرطي. تدعم التوزيع متعدد القنوات مع استهداف الجمهور وضوابط الخصوصية. توفر المنصة تحليلات قوية من خلال لوحات معلومات تفاعلية وتقارير آلية وخيارات تصدير البيانات، وكلها مؤمنة بأمان على مستوى المؤسسات مثل التشفير من طرف إلى طرف والامتثال للائحة العامة لحماية البيانات. كما أنها تستفيد من الذكاء الاصطناعي لتحليل المشاعر واكتشاف الاتجاهات والتوصيات الذكية، إلى جانب خيارات تخصيص واسعة النطاق بما في ذلك العلامة البيضاء وتكامل واجهة برمجة التطبيقات.',
                 'sms-project': 'نظام إدارة الرسائل القصيرة',
                 'sms-project-desc': 'طورت نظام شامل لإدارة الرسائل القصيرة باستخدام React للواجهة الأمامية وExpress.js للواجهة الخلفية. تشمل الميزات إدارة جهات الاتصال مع عمليات الإنشاء والقراءة والتحديث والحذف وإمكانية الاستيراد، وإدارة الحملات، وواجهة دردشة تفاعلية، وإدارة المستخدمين، وإعدادات SMTP/SMPP قابلة للتكوين، وتكامل API لإرسال البريد الإلكتروني والرسائل القصيرة، وتحليلات مفصلة للحملات، ولوحة تقارير.'
             }
