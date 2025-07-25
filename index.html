@@ -1025,7 +1025,7 @@
                 <span data-translate="professional-summary">Professional Summary</span>
             </h2>
             <p data-translate="passionate-developer">Passionate software developer with over a year of experience, specializing in Laravel, Vue.js,
-                Bootstrap, and Tailwind. Familiar with React and Remix, with a strong focus on creating responsive and user-friendly web applications.</p>
+                Bootstrap, and Tailwind. Familiar with React and Next js, with a strong focus on creating responsive and user-friendly web applications.</p>
         </section>
 
         <section id="experience" class="section">
@@ -1070,7 +1070,7 @@
                 </h2>
                 <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
                     <li class="skill-chip">Node.js</li>
-                    <li class="skill-chip">Express.js</li>
+                    <!-- <li class="skill-chip">Express.js</li> -->
                     <li class="skill-chip">PHP</li>
                     <li class="skill-chip">Laravel</li>
                     <li class="skill-chip">MySQL</li>
@@ -1120,6 +1120,27 @@
                     </span>
                 </div>
                 <p data-translate="rai-platform-desc">An advanced survey platform built with Vue.js and Django, offering a comprehensive suite for survey creation, distribution, and analysis. Key features include an intuitive drag-and-drop survey builder with 20+ question types, customizable themes, and conditional logic. It supports multi-channel distribution with audience targeting and privacy controls. The platform provides powerful analytics through interactive dashboards, automated reports, and data export options, all secured with enterprise-grade security like end-to-end encryption and GDPR compliance. It also leverages AI for sentiment analysis, trend detection, and smart recommendations, along with extensive customization options including white labeling and API integration.</p>
+            </div>
+
+            <div class="project-divider"></div>
+
+            <div>
+                <div class="project-header">
+                    <h3 data-translate="notification-system">Notification Management System</h3>
+                    <span class="tech-badge">
+                        <i class="fab fa-react"></i>
+                        Next.js 
+                    </span>
+                    <span class="tech-badge">
+                        <i class="fab fa-js"></i>
+                        TypeScript
+                    </span>
+                    <span class="tech-badge">
+                        <i class="fas fa-database"></i>
+                        Prisma
+                    </span>
+                </div>
+                <p data-translate="notification-system-desc">A comprehensive admin dashboard for managing and sending notifications across multiple channels (Email, SMS, WhatsApp, Pusher) with role-based access control. Features include multi-channel notifications, user management with RBAC, audience management for targeted messaging, client management, queue system with background processing, real-time dashboard analytics, internationalization with RTL/LTR support, and pre-built email templates. Built with Next.js , TypeScript, Prisma, Tailwind CSS, BullMQ, and Pusher.</p>
             </div>
 
             <div class="project-divider"></div>
@@ -1227,7 +1248,7 @@
         const translations = {
             en: {
                 'professional-summary': 'Professional Summary',
-                'passionate-developer': 'Passionate software developer with over a year of experience, specializing in Laravel, Vue.js, Bootstrap, and Tailwind. Familiar with React and Remix, with a strong focus on creating responsive and user-friendly web applications.',
+                'passionate-developer': 'Passionate software developer with over a year of experience, specializing in Laravel, Vue.js, Bootstrap, and Tailwind. Familiar with React and Next js, with a strong focus on creating responsive and user-friendly web applications.',
                 'professional-experience': 'Professional Experience',
                 'software-developer': 'Software Developer',
                 'doing': 'Doing',
@@ -1278,12 +1299,14 @@
                 'rai-platform': 'Rai Platform',
                 'rai-platform-desc': 'An advanced survey platform built with Vue.js and Django, offering a comprehensive suite for survey creation, distribution, and analysis. Key features include an intuitive drag-and-drop survey builder with 20+ question types, customizable themes, and conditional logic. It supports multi-channel distribution with audience targeting and privacy controls. The platform provides powerful analytics through interactive dashboards, automated reports, and data export options, all secured with enterprise-grade security like end-to-end encryption and GDPR compliance. It also leverages AI for sentiment analysis, trend detection, and smart recommendations, along with extensive customization options including white labeling and API integration.',
                 'visit-platform': 'Visit Platform',
+                'notification-system': 'Notification Management System',
+                'notification-system-desc': 'A comprehensive admin dashboard for managing and sending notifications across multiple channels (Email, SMS, WhatsApp, Pusher) with role-based access control. Features include multi-channel notifications, user management with RBAC, audience management for targeted messaging, client management, queue system with background processing, real-time dashboard analytics, internationalization with RTL/LTR support, and pre-built email templates. Built with Next.js , TypeScript, Prisma, Tailwind CSS, BullMQ, and Pusher.',
                 'sms-project': 'SMS Management System',
                 'sms-project-desc': 'Developed a comprehensive SMS Management System with React frontend and Express.js backend. Features include contact management with CRUD operations and import functionality, campaign management, interactive chat interface, user management, configurable SMTP/SMPP settings, API integration for email and SMS delivery, detailed campaign analytics, and reporting dashboard.'
             },
             ar: {
                 'professional-summary': 'الملف المهني',
-                'passionate-developer': 'مطور برمجيات شغوف مع خبرة تزيد عن العام، متخصص في Laravel وVue.js وBootstrap وTailwind. لدي معرفة بـ React وRemix، مع تركيز قوي على إنشاء تطبيقات ويب متجاوبة وسهلة الاستخدام.',
+                'passionate-developer': 'مطور برمجيات شغوف مع خبرة تزيد عن العام، متخصص في Laravel وVue.js وBootstrap وTailwind. لدي معرفة بـ React وNext js، مع تركيز قوي على إنشاء تطبيقات ويب متجاوبة وسهلة الاستخدام.',
                 'professional-experience': 'الخبرة المهنية',
                 'software-developer': 'مطور برمجيات',
                 'doing': 'Doing',
@@ -1334,6 +1357,8 @@
                 'rai-platform': 'منصة رأي',
                 'rai-platform-desc': 'منصة استطلاعات متقدمة مبنية باستخدام Vue.js و Django، تقدم مجموعة شاملة لإنشاء الاستطلاعات وتوزيعها وتحليلها. تشمل الميزات الرئيسية أداة إنشاء استطلاعات سهلة الاستخدام بالسحب والإفلات مع أكثر من 20 نوعًا من الأسئلة، وسمات قابلة للتخصيص، ومنطق شرطي. تدعم التوزيع متعدد القنوات مع استهداف الجمهور وضوابط الخصوصية. توفر المنصة تحليلات قوية من خلال لوحات معلومات تفاعلية وتقارير آلية وخيارات تصدير البيانات، وكلها مؤمنة بأمان على مستوى المؤسسات مثل التشفير من طرف إلى طرف والامتثال للائحة العامة لحماية البيانات. كما أنها تستفيد من الذكاء الاصطناعي لتحليل المشاعر واكتشاف الاتجاهات والتوصيات الذكية، إلى جانب خيارات تخصيص واسعة النطاق بما في ذلك العلامة البيضاء وتكامل واجهة برمجة التطبيقات.',
                 'visit-platform': 'قم بزيارة المنصة',
+                'notification-system': 'نظام إدارة الإشعارات',
+                'notification-system-desc': 'لوحة تحكم إدارية شاملة لإدارة وإرسال الإشعارات عبر قنوات متعددة (البريد الإلكتروني، الرسائل القصيرة، واتساب، Pusher) مع التحكم في الوصول القائم على الأدوار. تشمل الميزات إشعارات متعددة القنوات، إدارة المستخدمين مع RBAC، إدارة الجمهور للرسائل المستهدفة، إدارة العملاء، نظام الطوابير مع المعالجة في الخلفية، تحليلات لوحة التحكم في الوقت الفعلي، التدويل مع دعم RTL/LTR، وقوالب البريد الإلكتروني الجاهزة. مبني باستخدام Next.js ، TypeScript، Prisma، Tailwind CSS، BullMQ، وPusher.',
                 'sms-project': 'نظام إدارة الرسائل القصيرة',
                 'sms-project-desc': 'طورت نظام شامل لإدارة الرسائل القصيرة باستخدام React للواجهة الأمامية وExpress.js للواجهة الخلفية. تشمل الميزات إدارة جهات الاتصال مع عمليات الإنشاء والقراءة والتحديث والحذف وإمكانية الاستيراد، وإدارة الحملات، وواجهة دردشة تفاعلية، وإدارة المستخدمين، وإعدادات SMTP/SMPP قابلة للتكوين، وتكامل API لإرسال البريد الإلكتروني والرسائل القصيرة، وتحليلات مفصلة للحملات، ولوحة تقارير.'
             }
